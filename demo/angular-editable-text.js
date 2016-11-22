@@ -49,8 +49,10 @@
             }
             elem[val ? 'addClass' : 'removeClass']('editing');
             if (val) {
-              inputElm.focus();
-              inputElm.selectionStart = inputElm.selectionEnd = scope.editingValue ? scope.editingValue.length : 0;
+              $timeout(function(){
+                inputElm.focus();
+                inputElm.selectionStart = inputElm.selectionEnd = scope.editingValue ? scope.editingValue.length : 0;
+              })
               //fix for FF
             }
             else {
